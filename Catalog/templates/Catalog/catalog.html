@@ -1,0 +1,120 @@
+{% extends 'UserPages/base.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'Catalog/css/catalog.css' %}">
+{% endblock %}
+
+{% block js %}
+    <script defer src="{% static 'Catalog/js/catalog.js' %}"></script>
+    <script defer src="{% static 'Catalog/js/add_to_cart.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <div class="preloader">
+        <svg class="preloader__image" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+          <path fill="currentColor"
+            d="M304 48c0 26.51-21.49 48-48 48s-48-21.49-48-48 21.49-48 48-48 48 21.49 48 48zm-48 368c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zm208-208c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.49-48-48-48zM96 256c0-26.51-21.49-48-48-48S0 229.49 0 256s21.49 48 48 48 48-21.49 48-48zm12.922 99.078c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.491-48-48-48zm294.156 0c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48c0-26.509-21.49-48-48-48zM108.922 60.922c-26.51 0-48 21.49-48 48s21.49 48 48 48 48-21.49 48-48-21.491-48-48-48z">
+          </path>
+        </svg>
+    </div>
+    <p class="zero-product">Таких товарів ще немає</p>
+    <p class="title-page">Товари</p>
+    <form class="input-search" method = "POST" action="/catalog/1">
+        {% csrf_token %}
+        <input class = 'input-field' type="search" placeholder = 'Пошук'>
+        <button class = 'but-search' type="submit"><img src="{% static 'Catalog/img/search.png' %}" alt=""></button>
+    </form>
+    <div class="paginationTop">
+        <button class="back-pagination ">&#8592;Назад</button>
+        <div class="number-pagination">
+        </div>
+        <button class="forward-pagination">Вперед&#8594;</button>
+    </div>
+    
+    <div class="goods">
+        <input type="hidden" value="{% static 'Catalog/img/star.png' %}" class="imgStarPath">
+        {% for product in products %}
+            <div class = 'section' id="section-{{ product.pk }}">
+                <div class="img-box">
+                    <a href="/product/{{ product.pk }}"><img src="{{ product.image.url }}" alt=""></a>
+                </div>
+                <a href="/product/{{ product.pk }}" class = 'description'>{{ product.display_name }} </a>
+                <div class="stars">
+                    <input type="hidden" class="count-star" value="{{ product.grade }}">
+                </div>    
+                {% if product.promotion != 0 %}
+                    <div class="old-price">
+                        <p class ='start-price'>{{ product.price }} грн</p>
+                        <div class="promotion">
+                            <p class="promotion-percent">-{{ product.promotion }}%</p>
+                        </div>
+                    </div>
+                {% endif %}
+                <div class = group-button>
+                    <p class ='price'>Ціна: {{ product.discount_price }} грн</p>
+                    <form class="addToCart">
+                        {% csrf_token %}
+                        <input type="hidden" class="product_pk" value="{{product.pk}}" name="product_pk">
+                        <button class = 'button-basket'><img src="{% static 'Catalog/img/button-cart.png' %}"></button>
+                    </form>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <input type="hidden" class="count-page" value="{{ count_page }}">
+    <div class="pagination">
+        <button class="back-pagination ">&#8592;Назад</button>
+        <div class="number-pagination">
+        </div>
+        <button class="forward-pagination">Вперед&#8594;</button>
+    </div>
+    <div class="modal-window-add-cart">
+        <p>Товар успiшно додано</p>
+        <div class="go-to-cart">
+            <a class="img-block" href="{% url 'cart' %}"><img src="{% static 'Catalog/img/modal-window-button-cart.png' %}" alt=""></a>
+            <a class="text" href="{% url 'cart' %}">Перейти до кошику</a>
+        </div>
+        
+    </div>
+{% endblock %}
+
+{% block filter %}
+    <form class="all-filter" method = "POST" action="/catalog/1">
+        {% csrf_token %}
+        <p class="filter-text">Фiльтри:</p>
+        <div> 
+            <p>Ціна:</p>
+            <ul class="price">
+                <li class="price-text">вiд</li>
+                <li class="input"><input min="{{ min_price }}" value="{{ min_price }}" type="number" placeholder="грн" class="price-min"></li>
+                <li class="price-text">до</li>
+                <li class="input"><input max="{{ max_price }}" value="{{ max_price }}" type="number" placeholder="грн" class="price-max"></li>
+            </ul>
+        </div>
+        <div> 
+            <p>Вид:</p>
+            <ul>
+                <li class="kind">Сухий</li>
+                <li class="kind">Вологий</li>
+            </ul>
+        </div>
+        <div> 
+            <p>Тварина:</p>
+            <ul>
+                <li class="animal">Кіт</li>
+                <li class="animal">Собака</li>
+            </ul>
+        </div>
+        <div> 
+            <p>Вага:</p>
+            <ul>
+                <li class="weight">Менше 500г</li>
+                <li class="weight">500г - 1кг</li>
+                <li class="weight">1кг - 2.5кг</li>
+                <li class="weight">Більше 2.5кг</li>
+            </ul>
+        </div>
+    </form>
+{% endblock %}

@@ -1,0 +1,72 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'UserPages/css/base.css' %}">
+    <link rel="shortcut icon" href="{% static 'UserPages/img/logo.png' %}" />
+    {% block css %}
+    {% endblock %}
+    <script defer src="https://code.jquery.com/jquery-3.6.4.js" integrity="sha256-a9jBBRygX1Bh5lt8GZjXDzyOB+bWve9EiO7tROUtj/E=" crossorigin="anonymous"></script>
+    <script defer src="{% static 'UserPages/js/base.js' %}"></script>
+    {% block js %}
+    {% endblock %}
+    <title>Furry Feast</title>
+</head>
+<body>
+    <img src="{% static 'UserPages/img/open-side-menu.png' %}" alt="" class="open-side-menu">
+    <nav class="side-menu">
+        <a href="{% url 'main' %}" class="logo">
+            <p>Furry Feast</p>
+            
+        </a>
+        
+        <div class = 'top-categories'>
+            <a href="{% url 'main' %}"><img src="{% static 'UserPages/img/side-menu/main.png' %}" alt="">Головна</a>
+            <a class="catalog-side-menu" href="/animal_selection/"><img src="{% static 'UserPages/img/side-menu/catalog.png' %}" alt="">Товари</a>
+            <a href="{% url 'cart' %}"><img src="{% static 'UserPages/img/side-menu/cart.png' %}" alt="">Кошик</a>
+            <a href="{% url 'contact' %}"><img src="{% static 'UserPages/img/side-menu/contact.png' %}" alt="">Контакти</a>
+        </div>
+
+        {% block filter %}
+        {% endblock %}
+        
+
+        <div class = 'bot-categories'>
+            <input class="is-authenticated" type="hidden" value="{{ is_authenticated }}" name="" id="">
+            {% if is_authenticated %}
+                <div class="user-name">
+                    <img src="{% static 'UserPages/img/side-menu/user.png' %}" alt="">
+                    <p>{{ user_name }}</p>
+                </div>
+            {% endif %}
+            <form action="{% url 'logout' %}">
+                {% csrf_token %}
+                <a class="logout" href=""><img src="{% static 'UserPages/img/side-menu/logout.png' %}" alt="">Вийти</a>
+            </form>
+            <a class="login" href="{% url 'login' %}"><img src="{% static 'UserPages/img/side-menu/login.png' %}" alt="">Увійти</a>
+            <a class="registration" href="{% url 'registration' %}"><img src="{% static 'UserPages/img/side-menu/registration.png' %}" alt="">Реєстрація</a>
+        </div>
+    </nav>
+    <div class="modal-window-logout">
+        <p class="title">Ви вийшли з акаунту</p>
+    </div>
+    <main>
+        <img class='paw1'src="{% static 'Catalog/img/bacground.png' %}" alt="">
+        <img class='paw2'src="{% static 'Catalog/img/bacground.png' %}" alt="">
+        <img class='paw3'src="{% static 'Catalog/img/bacground.png' %}" alt="">
+        <img class='paw4'src="{% static 'Catalog/img/bacground.png' %}" alt="">
+        <img class='paw5'src="{% static 'Catalog/img/bacground.png' %}" alt="">
+        <img class='paw6'src="{% static 'Catalog/img/bacground.png' %}" alt="">
+        <img class='paw7'src="{% static 'Catalog/img/bacground.png' %}" alt="">
+        {% block content %}
+        {% endblock %}
+    </main> 
+    
+    <img id="button-up" src="{% static 'UserPages/img/button-up.png' %}" alt="">
+</body>
+</html>
+

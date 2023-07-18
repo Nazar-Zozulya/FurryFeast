@@ -1,0 +1,88 @@
+.select-animal{
+    display: flex;
+    width: 100%;
+    height: 100%;
+    align-items: center;
+    justify-content: space-around;
+    position: absolute;
+    
+}
+
+.select-animal .start-animal {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 5%;
+    background: #13BB89;
+    border-radius: 10px;
+    text-decoration: none;
+    transition: all 200ms;
+}
+
+.select-animal .start-animal:hover{
+    width: 28vw;
+    height: 28vw;
+}
+
+.select-animal p {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-size: 36px;
+    color: #FFFFFF
+}
+
+.select-animal img {
+    height: 72%;
+}
+
+@media screen and (min-width: 1000px) {
+    .start-animal{
+        width: 25vw;
+        height: 25vw;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .select-animal{
+        flex-direction: column;
+    }
+
+    .start-animal{
+        width: 36vh;
+        height: 36vh;
+    }
+    .select-animal .start-animal:hover{
+        width: 35vh;
+        height: 35vh;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .start-animal{
+        width: 30vh;
+        height: 30vh;
+    }
+    .select-animal .start-animal:hover{
+        width: 29vh;
+        height: 29vh;
+    }
+    .select-animal p{
+        font-size: 25px;
+    }
+}
+
+@media screen and (max-width: 370px) {
+    .start-animal{
+        width: 25vh;
+        height: 25vh;
+    }
+    .select-animal .start-animal:hover{
+        width: 23vh;
+        height: 23vh;
+    }
+}

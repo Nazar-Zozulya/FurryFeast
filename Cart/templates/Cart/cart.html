@@ -1,0 +1,63 @@
+{% extends 'UserPages/base.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'Cart/css/cart.css' %}">
+{% endblock %}
+
+{% block js %}
+    <script defer src="{% static 'Cart/js/cart.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <p class="title"> Мій кошик</p>
+    {% if empty_cart %}
+        <div class="final-price-block">
+            <p class="text">Загальна цiна:</p>
+            <p class="price"></p>
+        </div>
+    {% endif %}
+    <div class = 'colection-items'>
+        {% for product in product_in_cart %}
+        <div class="item">
+            
+            <a href="/product/{{ product.product.pk }}" class="item-icon">
+                <img src="{{ product.product.image.url }}" alt="">
+            </a>
+
+            <div class = 'information'>
+                <input type="hidden" class="product_pk" value="{{ product.product.pk }}">
+            
+                <a href="/product/{{ product.product.pk }}" class="display_name">{{ product.product.display_name }}</a>
+                <div class = 'item-information'>
+                    <input type="hidden" class="price-one-product" value="{{ product.product.discount_price }}">
+                    <p class="price">{{ product.product.discount_price }} грн</p>
+                    <form action="{% url 'cart' %}" class="quantity">
+                        {% csrf_token %}
+                        <button type="submit" class="minus">&#8722;</button>
+                        <p class="count-product">{{ product.count_product }}</p>
+                        <button type="submit" class="plus">+</button>
+                    </form>
+                    <form action="{% url 'cart' %}" class="bin-block">
+                        {% csrf_token %}
+                        <img  src="{% static 'Cart/img/bin.png' %}" alt="" class="bin">
+                    </form>
+                </div>
+                
+            </div>
+            
+        </div>
+            
+    {% endfor %}
+        {% if empty_cart %}
+            <div class="button-by-items">
+                <a href="{% url 'order' %}" class="button-text">Оформити замовлення</a>
+                <img src="{% static 'UserPages/img/side-menu/catalog.png' %}" alt="">
+            </div>
+        {% else %}
+            <p class="empty-cart">Ваш кошик порожнiй</p>
+        {% endif %}
+    </div>  
+{% endblock %}
+    

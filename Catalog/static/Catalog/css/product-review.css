@@ -1,0 +1,518 @@
+*{
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 26px;
+    margin: 0px;
+    padding: 0px;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    width: 84%;
+    position: absolute;
+}
+
+.main-product_review-card-head {
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    gap: 8%;
+    width: 40%;
+    margin: 1%;
+}
+
+.main-product_review-card-head a {
+    text-decoration: none;
+    color: #4B4B4B;
+}
+
+.main-product_review-card-head a:hover {
+    color: #080808;
+}
+
+.main-product_review-card-user{
+    height: 100%;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 30px;
+
+    color: #4B4B4B;
+}
+
+.main-product_review-card-time{
+    height: 100%;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+
+    color: #4B4B4B;
+}
+
+.reviews{
+    position: fixed;
+    top: 5%;
+    overflow-y: scroll;
+    height: 65%;
+    width: 84%;
+}
+.reviews::-webkit-scrollbar {
+    height: 100%;
+    border-radius: 20px;
+    width: 10px;  
+    background: #5C9886;
+}
+  
+
+.reviews::-webkit-scrollbar-thumb {
+    background-color: #13BB89;
+    border-radius: 20px;
+}
+
+.main-product_review-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 1%;
+    padding: 1%;
+    background: #DFDFDF;
+    width: 94%;
+    gap: 2%;
+    border: 2px solid #4B4B4B;
+    border-radius: 15px;
+    color: #8C8C8C;
+
+    
+}
+
+.main-product_review-card-info {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 2%;
+    height: min-content;
+    color: #4B4B4B;
+    
+    
+}
+
+/* 
+.product_review-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+
+    background: #DFDFDF;
+    width: 99%;
+    gap: 2%;
+    border: 2px solid #4B4B4B;
+    border-radius: 15px;
+    color: #8C8C8C;
+
+} */
+
+.product_review-card-text {
+    border-radius: 15px;
+    border: 2px solid #4B4B4B;
+    border-radius: 15px;
+    color: #8C8C8C;
+    width: 94%;
+    margin: 1%;
+    padding: 1%;
+    background: #DFDFDF;
+
+}
+
+.product_review-head {
+    display: flex;
+    justify-content: space-between;
+    margin: 0 1%;
+    width: 94%;
+    height: 20%;
+}
+
+.product_review-block {
+    position: fixed;
+    bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    width: 84%;
+    height: 28%;
+}
+
+.product_review-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:#fbbb0c;
+    padding: 9px 0px;
+    color: #4B4B4B;
+    border-radius: 14px ;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    transition-duration: 0.5s;
+    width: 20%;
+}
+
+
+.product_review-button:hover {
+    background: #fb6c0c;
+    transition: all 0.5s;
+    transform: scale(1.08);
+    
+    
+}
+
+
+#review {
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    color: #4B4B4B;
+    
+} 
+
+.main-product_review-card-head p{
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 36px;
+
+    color: #4B4B4B;
+    margin: 0;
+}
+
+.main-product_review-card-head a{
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 26px;
+    line-height: 36px;
+
+    color: #8C8C8C;
+    margin: 0;
+    text-decoration: none;
+
+}
+
+.auth-block{
+    position: fixed;
+    display: flex;
+    width: 84%;
+    gap: 10%;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 30%;
+    bottom: 0;
+    right: 0;
+}
+
+.auth-block p{
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    color: rgb(5, 82, 52);
+}
+
+.login-button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:#fbbb0c;
+    width: auto;
+    padding: 0 15px;
+    height: 20%;
+    border-radius: 14px ;
+    transition-duration: 0.5s;
+}
+
+.login-button a{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: #4B4B4B;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    text-decoration: none;
+}
+
+
+
+.login-button:hover{
+    background: #fb6c0c;
+    transition: all 0.5s;
+    transform: scale(1.08);
+    
+    
+}
+
+
+.star-block{
+    height: 100%;
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.star{
+    cursor: pointer;
+    width: 15%;
+    height: auto;
+}
+
+.star-hover{
+    width: 16%;
+}
+
+.star-product{
+    height: 3vh;
+}
+
+
+.modal-window{
+    z-index: 55;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    width: 40%;
+    height: 24%;
+    opacity: 0;
+    transition: all 1s;
+    right: 22.5%;
+    left: auto;
+    top: 38%;
+    gap: 10%;
+    background: #F0F0F0;
+    border-radius: 60px;
+}
+
+.modal-window .title{
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 28px;
+    
+    color: #13BB89;
+    margin: 0;
+}
+.modal-window .message{
+    font-family: 'Oswald';
+    font-style: normal;
+    font-size: 22px;
+    
+    color: #13BB89;
+    margin: 0;
+}
+
+.cover-div {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+    z-index: 49;
+    background: rgba(92, 92, 92,  0.2);
+    backdrop-filter: blur(2px);
+}
+
+@media screen and (max-width: 1100px) {
+    .modal-window{
+        width: 60%;
+        right: 12.5%;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .main-product_review-card{
+        left: 8%;
+        position: relative;
+        width: 85%;
+    }
+
+    .auth-block p{
+        left: 5%;
+        position: relative;
+        width: 90%;
+    }
+
+    .login-button{
+        width: auto;
+        padding: 1%;
+    }
+
+    .product_review-button{
+        width: auto;
+        padding: 1%;
+        font-size: 18px;
+    }
+
+    .main-product_review-card-head{
+        position: relative;
+        left: 7%;
+    }
+
+    .product_review-head{
+        position: relative;
+        width: 90%;
+        left: 5%;
+    }
+
+    .product_review-card-text{
+        position: relative;
+        width: 90%;
+        left: 5%;
+    }
+
+    .star{
+        width: 20%;
+    }
+
+    * {
+        font-size: 22px;
+    }
+
+    #review{
+        font-size: 21px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .modal-window{
+        height: 16%;
+        top: 42%;
+    }
+    .modal-window .title{
+        font-size: 25px;
+    }
+    .modal-window .message{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 650px) {
+    .main-product_review-card-head{
+        left: 15%;
+    }
+    .modal-window{
+        width: 80%;
+        right: 10%;
+    }
+
+    .modal-window .title{
+        font-size: 23px;
+    }
+    .modal-window .message{
+        font-size: 18px;
+    }
+
+    .main-product_review-card{
+        left: 0;
+        width: 95%;
+    }
+
+    main{
+        width: 100%;
+    }
+
+    .reviews{
+        width: 100%;
+        height: 70%;
+        margin-top: 2%;
+    }
+
+    .product_review-block{
+        width: 100%;
+        
+        
+    }
+
+    .product_review-card-text{
+        position: static;
+        width: 95%;
+    }
+
+    .product_review-head{
+        position: static;
+        width: 95%;
+    }
+
+    .star{
+        width: 20%;
+    }
+
+    * {
+        font-size: 18px;
+    }
+
+    #review{
+        font-size: 19px;
+    }
+
+    .product_review-button{
+        font-size: 15px;
+    }
+
+    .main-product_review-card-user {
+        font-size: 19px;
+    }
+
+    .main-product_review-card-time {
+        font-size: 19px;
+    }
+
+    .star-product{
+        height: 2vh;
+    }
+
+    .auth-block{
+        width: 100%;
+        
+    }
+
+    .auth-block p{
+        font-size: 20px;
+        width: auto;
+        left: 0;
+        
+        display: flex;
+    }
+
+    .login-button a{
+        font-size: 20px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    #review{
+        font-size: 16px;
+    }
+    .modal-window .title{
+        font-size: 20px;
+        text-align: center;
+    }
+    .modal-window .message{
+        font-size: 16px;
+        text-align: center;
+    }
+}

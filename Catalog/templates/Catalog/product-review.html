@@ -1,0 +1,61 @@
+{% extends 'UserPages/base.html' %}
+
+{% load static %}
+
+{% block css %}
+    <link rel="stylesheet" href="{% static 'Catalog/css/product-review.css' %}">
+{% endblock %}
+{% block js %}
+    <script defer src="{% static 'Catalog/js/product-review.js' %}"></script>
+{% endblock %}
+
+{% block content %}
+    <input type="hidden" class="starPath" value="{% static 'Catalog/img/star.png' %}">
+    <div class = 'main-product_review-card-head'>
+        <a href="/product/{{ product_pk }}">Товар</a>  
+        <p>Відгуки</p>
+    </div>
+
+    <div class="reviews">
+        {% for review in reviews %}
+            <div class = 'main-product_review-card'>
+                <div class = 'main-product_review-card-info'>
+                    <p class = 'main-product_review-card-user'>{{ review.autor_name }}</p>
+                    <p class = 'main-product_review-card-time'>{{ review.date }}</p>
+                    <div class="stars">
+                        <input type="hidden" class="count-star" value="{{ review.grade }}">
+                    </div>
+                </div>
+            
+                <p class = 'main-product_review-card-text' >{{ review.content }}</p>
+            </div>
+        {% endfor %}
+    </div>
+    {% if is_authenticated %}
+        <form action="/product_review/{{ product_pk }}" class = 'product_review-block'>
+            {% csrf_token %}
+            <div class = 'product_review-head'>
+                <p id = 'review'>Залиште відгук:</p>
+                <div class="star-block">
+                    <img src="{% static 'Catalog/img/star.png' %}" alt="" class="star">
+                    <img src="{% static 'Catalog/img/star.png' %}" alt="" class="star">
+                    <img src="{% static 'Catalog/img/star.png' %}" alt="" class="star">
+                    <img src="{% static 'Catalog/img/star.png' %}" alt="" class="star">
+                    <img src="{% static 'Catalog/img/star.png' %}" alt="" class="star">
+                </div>
+                <button type="submit" class = 'product_review-button'>Надіслати відгук</button>
+            </div>
+            <textarea name="content" class = "product_review-card-text" id="" cols="86" rows="5" placeholder = 'Повідомлення...'></textarea>
+        </form>
+    {% else %}
+        <div class="auth-block">
+            <p>Увiйдiть в акаунт щоб залишити вiдгук</p>
+            <button class="login-button"><a href="/login/">Авторизуватися</a></button>
+        </div>
+    {% endif %}
+    <div class="modal-window">
+        <p class="title">Повідомлення не вiдправленно</p>
+        <p class="message">Оберiть кiлькiсть зiрок!</p>
+    </div>
+{% endblock %}
+    

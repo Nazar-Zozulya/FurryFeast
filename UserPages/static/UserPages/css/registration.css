@@ -1,0 +1,252 @@
+.modal-window{
+    left: 37.5%;
+}
+
+.cover-div {
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    position: fixed;
+    z-index: 49;
+    background: rgba(92, 92, 92,  0.2);
+    backdrop-filter: blur(2px);
+}
+
+main{
+    justify-content: center;
+}
+
+
+
+.form div img{
+    display: flex;
+    height: 65%;
+
+}
+
+
+.card {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 40%; 
+    border-radius: 14px;  
+    margin: 3%;
+    padding: 10px 3%;
+    background-color: #13BB89;
+    gap: 0px; 
+    
+}
+
+.card h1{
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 36px;
+    line-height: 53px;
+    margin: 0;
+
+    color: #DFDFDF;
+}
+
+.card .form p{
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 36px;
+    margin: 0;
+    display: flex;
+
+    color: #DFDFDF;
+}
+
+.card .form{
+    width: 80%;
+    height: 100%;
+    display: flex;
+    gap: 15px;
+    flex-direction: column;
+    justify-content: flex-start;
+}
+.card .form input{
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 4px 8px;
+
+    
+    width: 100%;
+    height: 60px;
+
+    background: #DFDFDF;
+
+    border: 2px solid #4B4B4B;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-size: 24px;
+    color: #4B4B4B;
+    border-radius: 20px;
+}
+
+.card .form div{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    align-items: center;
+}
+.card .form div input{
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 4px 8px;
+    
+    width: 100%;
+    height: 100%;
+
+    background: #DFDFDF;
+
+    border: 2px solid #4B4B4B;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-size: 24px;
+    color: #4B4B4B;
+    border-radius: 20px;
+}
+
+.card .form button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background:#fbbb0c;
+    padding: 9px 0px;
+    color: #4B4B4B;
+    margin-top: 10%;
+    width: 100%;
+    height: 10%;
+
+    border-radius: 14px ;
+
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 22px;
+    transition-duration: 0.5s;
+}
+
+
+
+.card .form button:hover{
+    background: #fb6c0c;
+    transition: all 0.5s;
+    transform: scale(1.08);
+    
+    
+}
+
+
+
+.confirm-password, .password{
+    display: flex;
+    align-items: center;
+    gap: 3%;
+}
+
+.has-account{
+    text-align: center;
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 36px;
+    margin: 0;
+
+    margin-top: 5%;
+
+    color: #DFDFDF;  
+}
+
+.has-account a{
+    font-family: 'Oswald';
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 36px;
+    text-decoration: none;
+    color: #0CFB5D;
+}
+
+.banned-words{
+    margin-top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+
+@media screen and (max-width: 1280px) {
+ 
+    .card{
+        width: 65%;
+    }
+
+    input{
+        height: 45px;
+    }
+}
+
+
+@media only screen and (max-width: 1000px) {
+    .modal-window{
+        left: 40%;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .modal-window{
+        width: 50%;
+        left: 35%;
+    }
+}
+
+
+@media screen and (max-width: 650px) {
+    .modal-window{
+        width: 85%;
+        left: 7.5%;
+    }
+
+    .card h1,.card .form p,.has-account{
+        color: #4B4B4B;
+    }
+
+    .card{
+        width: 100%;
+        background-color: unset;
+    }
+
+    input{
+        height: 45px;
+    }
+
+    .has-account a{
+        color: #037429;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .modal-window .title, .modal-window-logout .title{
+        font-size: 18px;
+        text-align: center;
+    }
+    .modal-window .message{
+        font-size: 15px;
+        text-align: center;
+    }
+}
